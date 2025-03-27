@@ -12,6 +12,10 @@
 
     <artifactId>boot</artifactId>
 
+    <properties>
+        <start-class>org.example.boot.BootApplication</start-class>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.example</groupId>
