@@ -27,7 +27,7 @@
         <org.junit.jupiter>5.8.2</org.junit.jupiter>
         <org.mockito>3.12.4</org.mockito>
         <org.instancio>2.0.0</org.instancio>
-        <org.apache.maven.plugins.maven-compiler-plugin>3.10.1</org.apache.maven.plugins.maven-compiler-plugin>
+        <org.apache.maven.plugins.maven-compiler-plugin>3.8.1</org.apache.maven.plugins.maven-compiler-plugin>
         <com.cloudinary>2.0.0</com.cloudinary>
         <net.coobird.thumbnailator>0.4.18</net.coobird.thumbnailator>
         <com.cloudinary>2.0.0</com.cloudinary>
