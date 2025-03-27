@@ -112,3 +112,17 @@ In order to do the image rescaling you can use a framework like [Thumbnailator](
 > This module ensures that external dependencies (databases, APIs, messaging systems, etc.) are abstracted from the business logic, promoting flexibility and easier adaptability to changes in external services.
 
 ### 4. To finish the PoC and allow the team to test it, would you be able to deploy it somewhere where it can be tested? Please detail the process.
+> To ensure a fast and simple deployment of the NewsNow system, Heroku is a suitable Platform as a Service (PaaS) option that allows seamless integration with GitHub for automated deployments. The deployment process follows these steps:
+> 
+> - GitHub Integration & Deployment
+> The application repository is linked to Heroku, enabling continuous deployment whenever changes are pushed to the main branch.
+> Environment variables are configured directly in Heroku’s settings to securely store credentials and API keys.
+> 
+> - Configuration for Third-Party Services
+> The application integrates with Cloudinary for media storage and MongoDB for database management.
+> Environment variables are used to store Cloudinary API keys and the MongoDB connection string, ensuring secure access without hardcoding sensitive information.
+> 
+> - Procfile & System Properties for Java Execution
+> A Procfile is required to specify the command for executing the Java application, ensuring it runs correctly on Heroku’s environment. 
+> A system.properties file is added to define the Java version required for the project. This ensures that Heroku provisions the correct runtime environment to execute the application.
+
