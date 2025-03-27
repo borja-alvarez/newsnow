@@ -18,8 +18,6 @@ class ImageResponseDtoMapperTest {
     @Autowired
     ImageResponseDtoMapper imageResponseDtoMapper;
 
-    Task task;
-
     @Test
     void toDto() {
         Task task = Instancio.create(Task.class);
