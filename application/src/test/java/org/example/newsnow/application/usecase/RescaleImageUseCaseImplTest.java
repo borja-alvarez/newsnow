@@ -78,12 +78,10 @@ class RescaleImageUseCaseImplTest {
     }
 
     @Test
-    void rescaleImage_IOException() throws IOException, NoSuchAlgorithmException {
+    void rescaleImage_IOException() throws IOException {
         when(imageRescaleHelper.rescaleImage(imageRescale)).thenThrow(new IOException());
 
-        assertThrows(IOException.class, () -> {
-            rescaleImageUseCase.rescaleImage(imageRescale);
-        });
+        assertThrows(IOException.class, () -> rescaleImageUseCase.rescaleImage(imageRescale));
     }
 
     @Test
@@ -93,8 +91,6 @@ class RescaleImageUseCaseImplTest {
         when(cloudinaryService.uploadImage(tempFile)).thenReturn("http://example.com/image.jpg");
         when(calculateMD5Helper.calculateMD5(imageRescale.getImage())).thenThrow(new NoSuchAlgorithmException());
 
-        assertThrows(NoSuchAlgorithmException.class, () -> {
-            rescaleImageUseCase.rescaleImage(imageRescale);
-        });
+        assertThrows(NoSuchAlgorithmException.class, () -> rescaleImageUseCase.rescaleImage(imageRescale));
     }
 }

@@ -18,7 +18,7 @@ class ImageResponseDtoMapperTest {
     @Autowired
     ImageResponseDtoMapper imageResponseDtoMapper;
 
-    private Task task;
+    Task task;
 
     @Test
     void toDto() {

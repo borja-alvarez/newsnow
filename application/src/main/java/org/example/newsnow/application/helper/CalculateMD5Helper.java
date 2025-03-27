@@ -2,9 +2,6 @@ package org.example.newsnow.application.helper;
 
 import org.springframework.stereotype.Component;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.file.Files;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -14,12 +11,12 @@ import java.security.NoSuchAlgorithmException;
 @Component
 public class CalculateMD5Helper {
 
-    /**
-     * Calculates the MD5 checksum of the given file.
+
+/**
+     * Calculates the MD5 checksum of the given input bytes.
      *
-     * @param file the file to calculate the MD5 checksum for
+     * @param inputBytes the input bytes to calculate the MD5 checksum for
      * @return the MD5 checksum as a hexadecimal string
-     * @throws IOException if an I/O error occurs reading the file
      * @throws NoSuchAlgorithmException if the MD5 algorithm is not available
      */
     public String calculateMD5(byte[] inputBytes) throws NoSuchAlgorithmException {

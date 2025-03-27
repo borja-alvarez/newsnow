@@ -15,5 +15,5 @@ public interface CloudinaryService {
      * @return the URL of the uploaded image
      * @throws IOException if an I/O error occurs during upload
      */
-    public String uploadImage(File file) throws IOException;
+    String uploadImage(File file) throws IOException;
 }

@@ -18,5 +18,5 @@ public interface RescaleImageUseCase {
      * @return the path to the rescaled image
      * @throws IOException if an I/O error occurs
      */
-    public Task rescaleImage(ImageRescale imageRescale) throws IOException, NoSuchAlgorithmException;
+    Task rescaleImage(ImageRescale imageRescale) throws IOException, NoSuchAlgorithmException;
 }

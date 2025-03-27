@@ -11,11 +11,11 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface ImageResponseDtoMapper {
 
-    /**
-     * Converts a URL string to an ImageResponseDto.
-     *
-     * @param url the URL of the image
-     * @return the ImageResponseDto containing the image data
-     */
-    ImageResponseDto toDto(Task imageUrl);
+/**
+ * Converts a Task entity containing an image URL to an ImageResponseDto.
+ *
+ * @param imageUrl the Task entity containing the URL of the image
+ * @return the ImageResponseDto containing the image data
+ */
+ImageResponseDto toDto(Task imageUrl);
 }

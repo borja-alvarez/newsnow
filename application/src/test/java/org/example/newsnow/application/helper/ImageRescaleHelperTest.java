@@ -1,20 +1,15 @@
 package org.example.newsnow.application.helper;
 
-import net.coobird.thumbnailator.Thumbnails;
 import org.example.newsnow.domain.entity.ImageRescale;
 import org.instancio.Instancio;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -32,9 +27,9 @@ class ImageRescaleHelperTest {
     ImageRescaleHelper imageRescaleHelper;
 
     @MockBean
-    private ThumbnailsHelper thumbnailsService;
+    ThumbnailsHelper thumbnailsService;
 
-    private ImageRescale imageRescale;
+    ImageRescale imageRescale;
 
     @BeforeEach
     void setUp() {
@@ -55,8 +50,6 @@ class ImageRescaleHelperTest {
         doThrow(IOException.class).when(thumbnailsService)
                 .resizeImage(eq(imageRescale.getImage()), eq(imageRescale.getWidth()), eq(imageRescale.getHeight()), any(OutputStream.class));
 
-        assertThrows(IOException.class, () -> {
-            imageRescaleHelper.rescaleImage(imageRescale);
-        });
+        assertThrows(IOException.class, () -> imageRescaleHelper.rescaleImage(imageRescale));
     }
 }

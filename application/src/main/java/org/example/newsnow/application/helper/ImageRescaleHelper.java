@@ -1,11 +1,9 @@
 package org.example.newsnow.application.helper;
 
-import net.coobird.thumbnailator.Thumbnails;
 import org.example.newsnow.domain.entity.ImageRescale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -18,7 +16,7 @@ import java.io.IOException;
 public class ImageRescaleHelper {
 
     @Autowired
-    private ThumbnailsHelper thumbnailsHelper;
+    ThumbnailsHelper thumbnailsHelper;
 
     /**
      * Rescales the given image to the specified width and height.

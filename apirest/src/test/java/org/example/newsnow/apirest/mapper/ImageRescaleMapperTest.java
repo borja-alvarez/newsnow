@@ -51,7 +51,7 @@ class ImageRescaleMapperTest {
     }
 
     @Test
-    void toImageRescale_IllegalArgumentException() throws IOException {
+    void toImageRescale_IllegalArgumentException() {
         MultipartFile nonImageFile = new MockMultipartFile(
                 "file",
                 "document.txt",
@@ -59,9 +59,7 @@ class ImageRescaleMapperTest {
                 "test content".getBytes()
         );
 
-        assertThrows(IllegalArgumentException.class, () -> {
-            imageRescaleMapper.toImageRescale(nonImageFile, 100, 100);
-        });
+        assertThrows(IllegalArgumentException.class, () -> imageRescaleMapper.toImageRescale(nonImageFile, 100, 100));
     }
 
     @Test

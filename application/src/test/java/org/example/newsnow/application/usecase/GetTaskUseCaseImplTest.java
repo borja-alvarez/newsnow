@@ -1,6 +1,5 @@
 package org.example.newsnow.application.usecase;
 
-import org.example.newsnow.application.helper.CalculateMD5Helper;
 import org.example.newsnow.domain.entity.Task;
 import org.example.newsnow.domain.repository.TaskRepository;
 import org.example.newsnow.domain.usecase.GetTaskUseCase;
@@ -42,8 +41,6 @@ class GetTaskUseCaseImplTest {
     void getTask_TaskNotFound() {
         Mockito.when(taskRepository.findById("1")).thenReturn(Optional.empty());
 
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            getTaskUseCase.getTask("1");
-        });
+        assertThrows(IllegalArgumentException.class, () -> getTaskUseCase.getTask("1"));
     }
 }

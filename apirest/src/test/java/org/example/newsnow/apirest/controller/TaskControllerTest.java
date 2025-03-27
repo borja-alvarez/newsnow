@@ -83,7 +83,7 @@ class TaskControllerTest {
     }
 
     @Test
-    void createTask_BAD_REQUEST() throws IOException, NoSuchAlgorithmException {
+    void createTask_BAD_REQUEST() throws IOException {
         Integer width = 100;
         Integer height = 100;
 
@@ -93,7 +93,7 @@ class TaskControllerTest {
     }
 
     @Test
-    void createTask_INTERNAL_SERVER_ERROR() throws IOException, NoSuchAlgorithmException {
+    void createTask_INTERNAL_SERVER_ERROR() throws IOException {
         Integer width = 100;
         Integer height = 100;
 
@@ -118,7 +118,7 @@ class TaskControllerTest {
     }
 
     @Test
-    void getTaskById_BAD_REQUEST() throws IOException, NoSuchAlgorithmException {
+    void getTaskById_BAD_REQUEST() {
         when(getTaskUseCase.getTask(any(String.class))).thenThrow(new IllegalArgumentException());
         ResponseEntity<TaskDto> response = taskController.getTaskById("taskId");
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());

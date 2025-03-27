@@ -23,20 +23,20 @@ import static org.mockito.Mockito.*;
 class CloudinaryServiceImplTest {
 
     @MockBean
-    private Cloudinary cloudinary;
+    Cloudinary cloudinary;
 
     @MockBean
-    private Uploader uploader;
+    Uploader uploader;
 
     @Autowired
-    private CloudinaryService cloudinaryService;
+    CloudinaryService cloudinaryService;
 
     @Test
     void uploadImage_Success() throws IOException {
         File file = new File("test.jpg");
         Map<String, String> uploadResult = Map.of("url", "http://example.com/image.jpg");
         when(cloudinary.uploader()).thenReturn(uploader);
-        when(uploader.upload(any(),any())).thenReturn(uploadResult);
+        when(uploader.upload(any(), any())).thenReturn(uploadResult);
 
         String result = cloudinaryService.uploadImage(file);
 
@@ -50,8 +50,6 @@ class CloudinaryServiceImplTest {
         when(cloudinary.uploader()).thenReturn(uploader);
         when(uploader.upload(any(File.class), any(Map.class))).thenThrow(new IOException());
 
-        assertThrows(IOException.class, () -> {
-            cloudinaryService.uploadImage(file);
-        });
+        assertThrows(IOException.class, () -> cloudinaryService.uploadImage(file));
     }
 }

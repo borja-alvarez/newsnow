@@ -13,5 +13,5 @@ public interface GetTaskUseCase {
      * @param taskId the ID of the task to retrieve
      * @return the task as a String
      */
-    public Task getTask(String taskId);
+    Task getTask(String taskId);
 }
