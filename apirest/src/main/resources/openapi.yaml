@@ -1,0 +1,78 @@
+openapi: 3.0.1
+info:
+  title: Example REST API
+  description: news now API to rescale images
+  version: 1.0.0
+paths:
+  /task:
+    post:
+      summary: Receives an image and dimensions to rescale it, then store the image and outputs the URL of the resource and id.
+      operationId: createTask
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - image
+                - width
+                - height
+              properties:
+                image:
+                  type: string
+                  format: binary
+                width:
+                  type: integer
+                height:
+                  type: integer
+      responses:
+        '200':
+          description: Image successfully rescaled
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ImageResponseDto'
+        '500':
+          description: Internal server error
+  /task/{taskId}:
+    get:
+      summary: Get a task by ID
+      operationId: getTaskById
+      parameters:
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Task successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskDto'
+components:
+  schemas:
+    ImageResponseDto:
+      type: object
+      properties:
+        url:
+          type: string
+        id:
+          type: string
+          format: ObjectId
+    TaskDto:
+      type: object
+      properties:
+        id:
+          type: string
+        url:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        md5:
+          type: string
+        resolution:
+          type: string

@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: newsnow
+  data:
+    mongodb:
+        uri: ${MONGODB}
+        database: newsnow
+cloudinary:
+  url: ${CLOUDINARY_URL}
